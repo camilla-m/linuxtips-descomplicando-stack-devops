@@ -155,13 +155,13 @@ app.listen(PORT, () => {
 
 **public/index.html:**
 ```html
-
-
-
-    
-    
-    DevOps App - GCP
-    
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps App - GCP</title>
+    <style>
         body { 
             font-family: Arial, sans-serif; 
             margin: 40px; 
@@ -185,24 +185,24 @@ app.listen(PORT, () => {
             color: #155724; 
             border: 1px solid #c3e6cb; 
         }
-    
-
-
-    
-        DevOps App no GCP
-        Esta aplicação demonstra o pipeline completo DevOps no Google Cloud Platform.
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DevOps App no GCP</h1>
+        <p>Esta aplicação demonstra o pipeline completo DevOps no Google Cloud Platform.</p>
         
+        <div class="status healthy">
+            <strong>Status:</strong> Aplicação funcionando corretamente!
+        </div>
         
-            Status: Aplicação funcionando corretamente!
+        <h3>Endpoints disponíveis:</h3>
+        <ul>
+            <li><a href="/health">/health</a> - Health check</li>
+            <li><a href="/api/info">/api/info</a> - Informações da aplicação</li>
+        </ul>
         
-        
-        Endpoints disponíveis:
-        
-            /health - Health check
-            /api/info - Informações da aplicação
-        
-        
-        
+        <script>
             fetch('/api/info')
                 .then(response => response.json())
                 .then(data => {
@@ -213,10 +213,10 @@ app.listen(PORT, () => {
                             <strong>Pod/Host:</strong> ${data.pod}
                         </div>`;
                 });
-        
-    
-
-
+        </script>
+    </div>
+</body>
+</html>
 ```
 
 ### Dockerfile Otimizado
