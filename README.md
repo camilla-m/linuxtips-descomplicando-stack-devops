@@ -264,6 +264,7 @@ CMD ["node", "server.js"]
 
 ```bash
 # Build e execução
+npm install
 docker build -t devops-app-gcp:v1.0 .
 docker run -d --name app -p 3000:3000 devops-app-gcp:v1.0
 
