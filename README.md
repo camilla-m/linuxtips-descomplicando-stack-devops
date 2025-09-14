@@ -730,7 +730,9 @@ EXTERNAL_IP=$(kubectl get service devops-app-service -n devops-app -o jsonpath='
 curl http://$EXTERNAL_IP/health
 ```
 
-## Comandos Úteis
+## Comandos Úteis - recapitulando as últimas três aulas
+
+Recapitulando as últimas aulas e passando dicas de comandos :) 
 
 ### Docker
 ```bash
@@ -924,6 +926,7 @@ gcloud compute networks list
 # 5. Deletar projeto (opcional - remove tudo)
 gcloud projects delete $PROJECT_ID
 ```
+
 ## Dia 4: CI/CD Pipeline com GitHub Actions
 
 ### Pré-requisitos
