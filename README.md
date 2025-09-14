@@ -4,15 +4,16 @@
 
 ## Sobre o Treinamento
 
-Este é um treinamento prático e imersivo que ensina como construir e gerenciar uma pipeline completa de DevOps no Google Cloud Platform. Você aprenderá desde a conteinerização até o deploy automatizado em Kubernetes, passando por Infrastructure as Code com Terraform.
+Este é um treinamento prático e imersivo que ensina como construir e gerenciar uma pipeline completa de DevOps no Google Cloud Platform. Você aprenderá desde a conteinerização até o deploy automatizado em Kubernetes, passando por Infrastructure as Code com Terraform, monitoramento com Prometheus e Grafana e overview de microserviços com Service Mesh e Istio.
 
 ### O que você vai aprender
 
 - Conteinerização com Docker
 - Infrastructure as Code com Terraform  
 - Orquestração com Kubernetes no GKE
-- Monitoramento e observabilidade
+- Monitoramento e observabilidade com Prometheus e Grafana
 - CI/CD com GitHub Actions
+- Microserviços com Service Mesh e Istio
 
 ### Para quem é este treinamento
 
@@ -29,39 +30,45 @@ Este é um treinamento prático e imersivo que ensina como construir e gerenciar
 - Terraform e Kubernetes (desejável)
 
 ### Ferramentas Necessárias
-- [Google Cloud Platform Account](https://cloud.google.com/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- [Terraform](https://www.terraform.io/downloads)
-- [Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
-- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+
+| Ferramenta | Descrição | Link de Download |
+|------------|-----------|------------------|
+| **Google Cloud Platform Account** | Conta na plataforma de nuvem do Google | [Criar conta](https://cloud.google.com/) |
+| **Google Cloud CLI (gcloud)** | Interface de linha de comando para GCP | [Download](https://cloud.google.com/sdk/docs/install) |
+| **kubectl** | Cliente de linha de comando para Kubernetes | [Instalação](https://kubernetes.io/docs/tasks/tools/) |
+
+### Containerização e Orquestração
+
+| Ferramenta | Descrição | Link de Download |
+|------------|-----------|------------------|
+| **Docker Desktop** | Plataforma de containerização | [Download](https://www.docker.com/products/docker-desktop) |
+| **Istio CLI (istioctl)** | Interface para service mesh Istio | Instalado via script no tutorial |
+
+### Infrastructure as Code
+
+| Ferramenta | Descrição | Link de Download |
+|------------|-----------|------------------|
+| **Terraform** | Ferramenta de Infrastructure as Code | [Download](https://www.terraform.io/downloads) |
+
+### Desenvolvimento
+
+| Ferramenta | Descrição | Link de Download |
+|------------|-----------|------------------|
+| **Node.js** (versão 18+) | Runtime JavaScript para aplicação exemplo | [Download](https://nodejs.org/) |
+| **Git** | Sistema de controle de versão | [Download](https://git-scm.com/) |
+| **Conta GitHub** | Plataforma para CI/CD pipelines | [Criar conta](https://github.com/) |
+
+---
 
 ## Estrutura do Projeto
 
-```
-devops-app-gcp/
-├── package.json              # Dependências Node.js
-├── server.js                # Aplicação Express
-├── public/
-│   └── index.html           # Interface web
-├── Dockerfile               # Container configuration
-├── terraform/               # Infrastructure as Code
-│   ├── main.tf                 # Recursos principais
-│   ├── variables.tf            # Variáveis
-│   ├── outputs.tf              # Outputs
-│   ├── kubernetes.tf           # Cluster GKE
-│   └── startup-script.sh       # Script de inicialização
-└── k8s/                     # Kubernetes manifests
-    ├── namespace.yaml
-    ├── deployment.yaml
-    ├── service.yaml
-    └── ingress.yaml
-```
+//TODO
 
 ## Quick Start
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/seu-usuario/devops-app-gcp.git
+git clone https://github.com/camilla-m/linuxtips-descomplicando-stack-devops.git
 cd devops-app-gcp
 ```
 
