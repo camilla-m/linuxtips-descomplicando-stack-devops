@@ -427,6 +427,24 @@ sleep 10
 
 # Criar aplicação temporária para demonstração
 mkdir -p /tmp/app/public
+
+# Criar Dockerfile
+cat > /tmp/app/Dockerfile << 'EOF'
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --only=production && npm cache clean --force
+COPY . .
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+RUN chown -R nextjs:nodejs /app
+USER nextjs
+EXPOSE 3000
+ENV NODE_ENV=production PORT=3000
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3000/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
+CMD ["node", "server.js"]
+EOF
+
 cat > /tmp/app/package.json << 'EOF'
 {
   "name": "devops-app-gcp",
@@ -463,13 +481,13 @@ app.listen(PORT, () => {
 EOF
 
 cat > /tmp/app/public/index.html << 'EOF'
-
-DevOps App - GCP
-
-DevOps App rodando no GCP!
-Aplicação containerizada em VM do Google Compute Engine
-Health Check | Info API
-
+<!DOCTYPE html>
+<html><head><title>DevOps App - GCP</title></head>
+<body>
+<h1>DevOps App rodando no GCP!</h1>
+<p>Aplicação containerizada em VM do Google Compute Engine</p>
+<a href="/health">Health Check</a> | <a href="/api/info">Info API</a>
+</body></html>
 EOF
 
 # Build da imagem
